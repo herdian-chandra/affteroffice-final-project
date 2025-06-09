@@ -1,9 +1,11 @@
+//better wait
 cy.get('.confirmation-box', { timeout: 5000 }) // 1. wait up to 5s for it to exist
   .should('exist')                             // 2. confirm it actually exists
   .scrollIntoView()                            // 3. scroll into view to prevent click/visibility errors
   .should('be.visible')                        // 4. make sure it's visible to user
   .should('contain', 'Success');               // 5. finally assert content
 
+//loggin purpose
 cy.get('.confirmation-box', { timeout: 5000 })
   .should('exist')
   .scrollIntoView()
@@ -13,7 +15,7 @@ cy.get('.confirmation-box', { timeout: 5000 })
     cy.log('✅ Confirmation box verified');
   });
 
-
+//extract value from DOM
 cy.xpath(getThePriceOfChair)
   .should("exist")
   .scrollIntoView()
