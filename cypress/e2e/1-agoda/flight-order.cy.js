@@ -3,16 +3,19 @@ import flightResults from "../../pages/1-agoda/flight-results";
 import bookingDetails from "../../pages/1-agoda/booking-details";
 import bookingPayments from "../../pages/1-agoda/booking-payments";
 
+//testdata
+const testData = require("../../utils/test-data-generator");
+
 //input
-let inputFirstName = "Herdian";
-let inputLastName = "Chandra";
-let inputEmail = "test12345@gmail.com";
+let inputFirstName = testData.randomFirstName;
+let inputLastName = testData.randomLastName;
+let inputEmail = testData.randomEmail;
 let inputPhoneNumber = "81208120812";
-let inputPassportNumber = "12345678";
+let inputPassportNumber = testData.randomPassportNumber;
 // let departureArrivalTime = "";
 // let totalPrice = "";
 
-describe("Agoda Flight Order", () => {
+describe("Flight Order in Agoda website", () => {
   beforeEach(() => {
     cy.visit("https://www.agoda.com");
     cy.on("uncaught:exception", (err, runnable) => {
@@ -21,19 +24,8 @@ describe("Agoda Flight Order", () => {
     cy.wait(2000);
   });
 
-  it("Flight order from CGK to SIN", () => {
+  it("As a user, i can order flight from CGK to SIN", () => {
     //homescreen
-    /**
-     * 1st way
-     */
-    // homescreen.clickFlightIcon();
-    // homescreen.inputDeparture();
-    // homescreen.inputArrival();
-    // homescreen.selectDepartureDate();
-    // homescreen.searchFlightResult();
-    /**
-     * 2nd way
-     */
     homescreen.searchFlights();
 
     //select airline
