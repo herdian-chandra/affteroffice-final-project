@@ -17,3 +17,5 @@
 import "./commands";
 //xpath
 require("cypress-xpath");
+//import mochawesome reporter
+import "cypress-mochawesome-reporter/register";
