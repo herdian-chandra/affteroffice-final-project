@@ -5,7 +5,7 @@ cy.get('.confirmation-box', { timeout: 5000 }) // 1. wait up to 5s for it to exi
   .should('be.visible')                        // 4. make sure it's visible to user
   .should('contain', 'Success');               // 5. finally assert content
 
-//loggin purpose
+//logging purpose
 cy.get('.confirmation-box', { timeout: 5000 })
   .should('exist')
   .scrollIntoView()
