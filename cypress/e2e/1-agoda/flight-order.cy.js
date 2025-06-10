@@ -12,8 +12,6 @@ let inputLastName = testData.randomLastName;
 let inputEmail = testData.randomEmail;
 let inputPhoneNumber = "81208120812";
 let inputPassportNumber = testData.randomPassportNumber;
-// let departureArrivalTime = "";
-// let totalPrice = "";
 
 describe("Flight Order in Agoda website", () => {
   beforeEach(() => {
@@ -44,14 +42,7 @@ describe("Flight Order in Agoda website", () => {
       inputPassportNumber
     );
     bookingDetails.continueToAddOnsAndPayment();
-    bookingDetails.getDepartureArrivalPrice(
-      ({ departureArrivalTime, totalPrice }) => {
-        departureArrivalTime = departureArrivalTime;
-        totalPrice = totalPrice;
-        cy.log(`DEPARTURE TIME from TC: ${departureArrivalTime}`);
-        cy.log(`TOTAL PRICE from TC: ${totalPrice}`);
-      }
-    );
+    bookingDetails.getDepartureArrivalPrice();
 
     //payment information detail (assertion)
     bookingPayments.assertContactDetails(
@@ -65,11 +56,7 @@ describe("Flight Order in Agoda website", () => {
       inputLastName,
       inputPassportNumber
     );
-    // cy.get(departureArrivalTimeAssert)
-    //   .should("exist")
-    //   .should("have.text", `${departureArrivalTime}`);
-    // cy.get(totalPriceAssert)
-    //   .should("exist")
-    //   .should("have.text", `${totalPrice}`);
+    bookingPayments.assertDepartureArrivalTime();
+    bookingPayments.assertTotalPrice();
   });
 });

@@ -9,16 +9,27 @@ class flightResutls {
 
   //funtion step by step
   selectAirline() {
-    cy.xpath(this.showAllAirlineButton).should("be.visible").click();
-    cy.xpath(this.batikAirMalaysiaCheckbox).click();
-    cy.wait(1000);
-    cy.xpath(this.selectFlight).should("be.visible").click();
-    cy.wait(1000);
-    cy.xpath(this.selectFlightButton)
+    cy.xpath(this.showAllAirlineButton, { timeout: 10000 })
+      .should("exist")
       .scrollIntoView()
       .should("be.visible")
+      .click();
+    cy.xpath(this.batikAirMalaysiaCheckbox, { timeout: 10000 })
+      .should("exist")
+      .scrollIntoView()
+      .click();
+    cy.wait(3000);
+    cy.xpath(this.selectFlight, { timeout: 10000 })
+      .should("exist")
+      .scrollIntoView()
+      .should("be.visible")
+      .click();
+    cy.wait(3000);
+    cy.xpath(this.selectFlightButton, { timeout: 10000 })
+      .should("exist")
+      .scrollIntoView()
       .click({ force: true });
-    cy.url().should("include", "/bookings/details");
+    cy.url().should("include", "/bookings/details", { timeout: 10000 });
   }
 }
 

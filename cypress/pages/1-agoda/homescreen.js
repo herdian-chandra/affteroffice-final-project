@@ -10,17 +10,39 @@ class homescreen {
 
   //functions step by step
   clickFlightIcon() {
-    cy.xpath(this.flightIcon).should("be.visible").click();
+    cy.xpath(this.flightIcon, { timeout: 3000 })
+      .should("exist")
+      .scrollIntoView()
+      .should("be.visible")
+      .click();
   }
 
   inputDeparture() {
-    cy.xpath(this.flyingFromInput).should("be.visible").clear().type("cgk");
-    cy.xpath(this.cgk).should("be.visible").click();
+    cy.xpath(this.flyingFromInput)
+      .should("exist")
+      .scrollIntoView()
+      .should("be.visible")
+      .clear()
+      .type("cgk");
+    cy.xpath(this.cgk)
+      .should("exist")
+      .scrollIntoView()
+      .should("be.visible")
+      .click();
   }
 
   inputArrival() {
-    cy.xpath(this.flyingToInput).should("be.visible").clear().type("singapore");
-    cy.xpath(this.sin).should("be.visible").click();
+    cy.xpath(this.flyingToInput)
+      .should("exist")
+      .scrollIntoView()
+      .should("be.visible")
+      .clear()
+      .type("singapore");
+    cy.xpath(this.sin)
+      .should("exist")
+      .scrollIntoView()
+      .should("be.visible")
+      .click();
   }
 
   selectDepartureDate() {
@@ -32,15 +54,24 @@ class homescreen {
     cy.xpath(
       `(//div[contains(@class, 'PriceSurgePicker-Day')]//span[text()='${targetDay}'])[1]`
     )
+      .should("exist")
+      .scrollIntoView()
       .should("be.visible")
       .click();
   }
 
   searchFlightResult() {
-    cy.xpath(this.flightOccupancy).should("be.visible").click();
-    cy.xpath(this.SearchFlightButton).should("be.visible").click();
-    cy.wait(1000);
-    cy.url().should("include", "/flights/results");
+    cy.xpath(this.flightOccupancy)
+      .should("exist")
+      .scrollIntoView()
+      .should("be.visible")
+      .click();
+    cy.xpath(this.SearchFlightButton)
+      .should("exist")
+      .scrollIntoView()
+      .should("be.visible")
+      .click();
+    cy.url().should("include", "/flights/results", { timeout: 3000 });
   }
 
   //functions contains all step
