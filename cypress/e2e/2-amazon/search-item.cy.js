@@ -4,7 +4,9 @@ import detailProduct from "../../pages/2-amazon/detail-product";
 
 describe("Search item in Amazon", () => {
   beforeEach(() => {
-    cy.visit("https://www.amazon.com");
+    // cy.visit("https://www.amazon.com");
+    const baseUrl = Cypress.env("BASE_URL_AMAZON");
+    cy.visit(baseUrl);
     cy.on("uncaught:exception", (err, runnable) => {
       return false;
     });
