@@ -15,7 +15,9 @@ let inputPassportNumber = testData.randomPassportNumber;
 
 describe("Flight Order in Agoda website", () => {
   beforeEach(() => {
-    cy.visit("https://www.agoda.com");
+    // cy.visit("https://www.agoda.com");
+    const baseUrl = Cypress.env("BASE_URL_AGODA");
+    cy.visit(baseUrl);
     cy.on("uncaught:exception", (err, runnable) => {
       return false;
     });

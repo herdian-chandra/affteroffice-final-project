@@ -1,8 +1,18 @@
 const { defineConfig } = require("cypress");
+const dotenv = require("dotenv");
+
+dotenv.config({ path: ".env.agoda" });
+dotenv.config({ path: ".env.amazon" });
+dotenv.config({ path: ".env.youtube" });
 
 module.exports = defineConfig({
   defaultCommandTimeout: 30000,
   e2e: {
+    env: {
+      BASE_URL_AGODA: process.env.BASE_URL_AGODA,
+      BASE_URL_AMAZON: process.env.BASE_URL_AMAZON,
+      BASE_URL_YOUTUBE: process.env.BASE_URL_YOUTUBE,
+    },
     setupNodeEvents(on, config) {
       require("cypress-mochawesome-reporter/plugin")(on);
     },
