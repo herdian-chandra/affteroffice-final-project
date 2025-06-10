@@ -4,7 +4,7 @@ import watch from "../../pages/3-youtube/watch";
 
 describe("Top 3 Trending Video on Youtube", () => {
   beforeEach(() => {
-    cy.visit("https://www.youtube.com");
+    cy.visit("https://www.youtube.com/feed/trending?hl=en");
     cy.wait(2000);
   });
 

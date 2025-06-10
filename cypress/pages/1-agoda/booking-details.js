@@ -78,7 +78,8 @@ class bookingDetails {
   }
 
   inputPassenger(firstname, lastname, passportNumber) {
-    cy.xpath(this.paxGender)
+    cy.wait(15000);
+    cy.xpath(this.paxGender, { timeout: 10000 })
       .should("exist")
       .scrollIntoView()
       .check({ force: true })

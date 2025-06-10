@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test:agoda": "npx cypress run --browser chrome --spec cypress/e2e/1-agoda/**/*.cy.js",
+    "test:amazon": "npx cypress run --browser chrome --spec cypress/e2e/2-amazon/**/*.cy.js",
+    "test:youtube": "npx cypress run --browser chrome --spec cypress/e2e/3-youtube/**/*.cy.js"
   },
   "author": "Herdian Chandra",
   "license": "ISC",
@@ -11,6 +13,7 @@
   "devDependencies": {
     "@faker-js/faker": "^9.8.0",
     "cypress": "^14.4.1",
+    "cypress-mochawesome-reporter": "^3.8.2",
     "cypress-xpath": "^2.0.1"
   }
 }

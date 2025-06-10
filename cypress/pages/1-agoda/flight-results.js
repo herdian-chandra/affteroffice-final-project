@@ -9,22 +9,24 @@ class flightResutls {
 
   //funtion step by step
   selectAirline() {
+    // cy.wait(5000);
     cy.xpath(this.showAllAirlineButton, { timeout: 10000 })
       .should("exist")
       .scrollIntoView()
       .should("be.visible")
       .click();
+    // cy.wait(5000);
     cy.xpath(this.batikAirMalaysiaCheckbox, { timeout: 10000 })
       .should("exist")
       .scrollIntoView()
       .click();
-    cy.wait(3000);
+    // cy.wait(5000);
     cy.xpath(this.selectFlight, { timeout: 10000 })
       .should("exist")
       .scrollIntoView()
       .should("be.visible")
       .click();
-    cy.wait(3000);
+    // cy.wait(15000);
     cy.xpath(this.selectFlightButton, { timeout: 10000 })
       .should("exist")
       .scrollIntoView()

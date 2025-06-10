@@ -5,6 +5,9 @@ import detailProduct from "../../pages/2-amazon/detail-product";
 describe("Search item in Amazon", () => {
   beforeEach(() => {
     cy.visit("https://www.amazon.com");
+    cy.on("uncaught:exception", (err, runnable) => {
+      return false;
+    });
     cy.wait(2000);
   });
 
